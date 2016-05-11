@@ -32,8 +32,8 @@ class Person extends GameObject {
     
       if(plane.hasReachedTheGround == true)
       {
-        
-            //theta = atan2( ((BombsRemaining.get(0)).position + ((BombsRemaining.get(0)).size.y/2 - (position.y + size.y/2) , ((BombsRemaining.get(0)).position.x + ((BombsRemaining.get(0)).size.x/2) - (position.x + size.x/2) );
+            //change theta to aim to the drop bomb
+            //theta = atan2( ( (BombsRemaining.get(0) ).position.y + ( (BombsRemaining.get(0) ).size.y/2 - (position.y + size.y/2) , ( (BombsRemaining.get(0) ).position.x + ((BombsRemaining.get(0)).size.x/2) - (position.x + size.x/2) );
         
         
             forward.x = sin(theta);
@@ -44,6 +44,13 @@ class Person extends GameObject {
             velocity.y = forward.y;    
             velocity.mult(personSpeed);  
             position.add(velocity);
+            
+      }
+      
+            if(plane.hasBeenCollectedByThePerson == true)
+      {
+        
+          //go back to origin
             
       }
 
