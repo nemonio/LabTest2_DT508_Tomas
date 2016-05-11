@@ -37,8 +37,8 @@ class Plane extends GameObject {
     
     if (keys[' '] && hasBeenEjected == false && hasBeenCollectedByThePerson == true)
     {
-      
-        BombsRemaining.add( new Bomb (position.x, position.y) );
+        //generates the bomb so it falls from the middle of the plane at its bottom with a square size of 30
+        BombsRemaining.add( new Bomb (position.x-size.x*0.5f, position.y+size.y, 30, 30) );
         hasBeenEjected = true;
     }
         
