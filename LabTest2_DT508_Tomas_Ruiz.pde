@@ -1,14 +1,19 @@
 //Array that will store the state of the keyboard keys: pressed or not pressed
 boolean[] keys;
 
+float cloudMaxSpeed=10;
+float cloudMinSpeed=5;
+
+
 PVector planeStartPosition = new PVector(50,50);
 
 float timeDelta = 1.0f / 60.0f;
 
 Plane plane;
-Bomb bomb;
+Person person;
 
 ArrayList<Bomb> BombsRemaining;
+ArrayList<Cloud> CloudsRemaining;
 
 //colors
 //colorMode(HSB, 360, 100, 100, 100);
@@ -30,7 +35,17 @@ void setup()
  PVector planeStartPosition = new PVector(50,50);
  
  plane = new Plane();
+ person = new Person();
  BombsRemaining = new ArrayList<Bomb>();
+ CloudsRemaining = new ArrayList<Cloud>();
+ 
+ //generate 4 clouds
+ for (int i=0; i<4; i++)
+ {
+   CloudsRemaining.add( new Cloud () );
+ }
+ println(CloudsRemaining.size());
+
 
 
   
@@ -40,13 +55,18 @@ void setup()
 void draw()
 {
  displayBackground();
+ displayAndUpdateClouds();
 
   
  plane.update();
  plane.display();
  
+ 
 
  displayAndUpdateBombs();
+ 
+ person.update();
+ person.display();
   
   
   
@@ -84,6 +104,19 @@ void displayAndUpdateBombs()
      
      (BombsRemaining.get(i)).display();
      (BombsRemaining.get(i)).update();
+     
+
+   }
+}
+
+void displayAndUpdateClouds()
+{
+   for (int i = 0; i < CloudsRemaining.size(); i++) {
+     
+      println(CloudsRemaining.size());
+
+     (CloudsRemaining.get(i)).display();
+     (CloudsRemaining.get(i)).update();
      
 
    }

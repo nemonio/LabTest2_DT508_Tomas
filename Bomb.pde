@@ -40,10 +40,7 @@ class Bomb extends GameObject {
 
         
     
-    if (position.y >= dropPosition.y)
-    {
-      position.y = dropPosition.y;
-    }
+
 
     
     acceleration = PVector.div(gravity, mass);   
@@ -53,6 +50,7 @@ class Bomb extends GameObject {
     if (position.y >= dropPosition.y)
     {
       position.y = dropPosition.y;
+      plane.hasReachedTheGround = true;
     }
     
     /*

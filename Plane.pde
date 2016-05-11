@@ -6,6 +6,8 @@ class Plane extends GameObject {
   boolean hasBeenEjected;
   //Has the bomb been collected by the player?
   boolean hasBeenCollectedByThePerson;
+  
+  boolean hasReachedTheGround;
 
   
   
@@ -23,6 +25,7 @@ class Plane extends GameObject {
     //start position in x=0 less the size of the plane
     super(x-sizeX, y);
     hasBeenEjected = false;
+    hasReachedTheGround = false;
     hasBeenCollectedByThePerson = true;
     theta=PI*0.5f;
     size = new PVector(sizeX, sizeY);
